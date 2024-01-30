@@ -1,0 +1,56 @@
+# makefile template
+
+# basic makefile syntax
+# sample rule:
+
+#target ... : prerequisites ...
+#	 recipe
+# "recipe" has a tab before it
+
+#a target is the name of a file or action to carry out
+#a prerequisite is the file(s) used as input to create the target
+#a recipe is an action that make carries out to create/run target using the prerequisites. put a tab before this line.
+#the whole construct, a rule, explains how and when to remake certain files or take some action
+#when the target is a file, and any of its prerequisites change, it is recompiled/linked
+
+#split long lines with \
+
+# define variables
+# VARIABLE = string
+# call them
+# $VARIABLE
+
+# $@ : target of rule
+# $^ : all dependencies of rule
+
+
+# Compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -O2
+LINKER_FLAGS=
+
+# Source file and executable name
+SOURCE = main.c
+EXECUTABLE = myprogram
+
+#
+
+# Default target
+all: $(EXECUTABLE)
+
+# Target to build the executable
+$(EXECUTABLE): $(SOURCE)
+	$(CC) $(SOURCE) $(CFLAGS) $(LINKER_FLAGS) -o $@ $^
+
+
+# Run it
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)
+
+# build with debug info
+debug: $(SOURCE)
+	$(CC)
+
+# Clean target to remove generated files
+clean:
+	rm -f $(EXECUTABLE)
