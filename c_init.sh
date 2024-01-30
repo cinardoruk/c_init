@@ -12,11 +12,11 @@ mkdir $1
 cd $1
 
 #create an empty .c file from template
-c_template="/home/cinar/Scripts/template.c"
+c_template="/~/Scripts/template.c"
 cp $c_template ./$1.c
 
 #create a makefile for it from template
-mf_template="home/cinar/Scripts/makefile_template"
+mf_template="~/Scripts/makefile_template"
 cp $mf_template ./makefile
 
 #modify new makefile so it works with $1.c
