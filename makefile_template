@@ -40,7 +40,7 @@ all: $(EXECUTABLE)
 
 # Target to build the executable
 $(EXECUTABLE): $(SOURCE)
-	$(CC) $(SOURCE) $(CFLAGS) $(LINKER_FLAGS) -o $@ $^
+	$(CC) $(SOURCE) $(CFLAGS) $(LINKER_FLAGS) -o $@
 
 
 # Run it
