@@ -8,18 +8,22 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-#create new directory,
+#create new directory for the project
 mkdir $1
+
+#extract the dirpath where c_init.sh is, so we can find c_template and mf_template
+script_dir="$(dirname "$0")"
 
 #create an empty .c file from template
 c_template="./template.c"
+
 c_new="./$1/$1.c"
-cp $c_template $c_new
+cp $script_dir/$c_template $c_new
 
 #create a makefile for it from template
 mf_template="./makefile_template"
 mf_new="./$1/makefile"
-cp $mf_template $mf_new
+cp $script_dir/$mf_template $mf_new
 
 #modify new makefile so it works with $1.c
 

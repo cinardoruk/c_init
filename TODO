@@ -1,0 +1,2 @@
+* add linker support
+* use $^ instead of $(SOURCE) to do this because objects to be linked are also dependencies for the target $(EXECUTABLE) ?
