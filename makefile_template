@@ -49,7 +49,7 @@ run: $(EXECUTABLE)
 
 # build with debug info
 debug: $(SOURCE)
-	$(CC)
+	$(CC) $(SOURCE) $(CFLAGS) -g $(LINKER_FLAGS) -o $@
 
 # Clean target to remove generated files
 clean:
